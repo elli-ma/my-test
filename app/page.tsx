@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 
-const Gallery: React.FC = () => {
+export default function Home() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
   const [imagesFromLocalStorage, setImagesFromLocalStorage] = useState<
@@ -10,10 +10,8 @@ const Gallery: React.FC = () => {
   >([]);
 
   useEffect(() => {
-    // Получаем данные из localStorage
     const savedImagesString = localStorage.getItem("userImages");
     if (savedImagesString) {
-      // Преобразуем JSON-строку обратно в массив изображений
       const savedImages: string[] = JSON.parse(savedImagesString);
       setImagesFromLocalStorage(savedImages);
     }
@@ -71,6 +69,4 @@ const Gallery: React.FC = () => {
       </Modal>
     </div>
   );
-};
-
-export default Gallery;
+}
