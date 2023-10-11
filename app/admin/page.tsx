@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 
 export default function Admin() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files && event.target.files[0];
@@ -14,7 +15,6 @@ export default function Admin() {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     if (selectedFile) {
-      console.log("Selected File:", selectedFile);
       const reader = new FileReader();
       reader.onload = (e: ProgressEvent<FileReader>) => {
         const imageBase64 = (e.target as FileReader).result as string;
@@ -46,8 +46,6 @@ export default function Admin() {
       console.error("Ошибка при разборе JSON:", error);
     }
   }, []);
-
-  const [imagePreview, setImagePreview] = useState<string | null>(null);
 
   return (
     <div>
