@@ -1,3 +1,6 @@
+# Test task 
+админка находиться на страницы админ localhost:3000/admin там можно загрузить изображения 
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
